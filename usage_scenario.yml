@@ -14,14 +14,17 @@ flow:
     container: actions-runner
     commands:
       - type: console
-        command: ./config.sh --url https://github.com/green-coding-solutions --token __GMT_VAR_RUNNER_TOKEN__ --unattended --name eco-ci-runner-M4 --labels eco-ci-runner-M4 --no-default-labels --ephemeral
+        command: cd /home/ubuntu/actions-runner && ./config.sh --url https://github.com/green-coding-solutions --token __GMT_VAR_RUNNER_TOKEN__ --unattended --name eco-ci-runner-M4 --labels eco-ci-runner-M4 --no-default-labels --ephemeral
+        shell: bash
   - name: Run Job
     container: actions-runner
     commands:
       - type: console
-        command: ./run.sh --url https://github.com/green-coding-solutions --token __GMT_VAR_RUNNER_TOKEN__ --unattended --name eco-ci-runner-M4 --labels eco-ci-runner-M4 --no-default-labels --ephemeral
+        command: cd /home/ubuntu/actions-runner && ./run.sh --url https://github.com/green-coding-solutions --token __GMT_VAR_RUNNER_TOKEN__ --unattended --name eco-ci-runner-M4 --labels eco-ci-runner-M4 --no-default-labels --ephemeral
+        shell: bash
   - name: Remove Runner
     container: actions-runner
     commands:
       - type: console
-        command: ./config.sh remove --token __GMT_VAR_RUNNER_TOKEN__
+        command: cd /home/ubuntu/actions-runner && ./config.sh remove --token __GMT_VAR_RUNNER_TOKEN__
+        shell: bash
