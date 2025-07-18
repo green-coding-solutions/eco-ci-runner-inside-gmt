@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt update && apt install curl jq liblttng-ust1 libkrb5-3 zlib1g libssl-dev libicu-dev -y
+RUN apt update && apt install curl jq liblttng-ust1 libkrb5-3 zlib1g libssl-dev libicu-dev git -y
 
 USER 1000
 RUN mkdir /home/ubuntu/actions-runner
